@@ -1,0 +1,20 @@
+{
+  "$schema": "https://app.kilo.ai/config.json",
+    "mcp": {
+        "servers": {
+            "figma": {
+                "type": "remote",
+                "url": "https://mcp.figma.com/mcp"
+            }
+        },
+        "laravel-boost": {
+            "type": "local",
+            "enabled": true,
+            "command": [
+                "php",
+                "artisan",
+                "boost:mcp"
+            ]
+        }
+    }
+}
