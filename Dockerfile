@@ -12,7 +12,7 @@ RUN npm run build
 
 
 # Stage 2: Build Laravel application
-FROM php:8.5-cli-bookworm
+FROM php:8.4-cli-bookworm
 
 RUN apt-get update && apt-get install -y \
     git unzip libpq-dev libzip-dev libicu-dev \
