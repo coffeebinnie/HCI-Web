@@ -12,9 +12,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->redirectGuestsTo(fn () => route('login'));
-        $middleware->redirectUsersTo('/dashboard');
-    })
+    $middleware->trustProxies(at: '*');
+
+    $middleware->redirectGuestsTo(fn () => route('login'));
+    $middleware->redirectUsersTo('/dashboard');
+})
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
             fn (Request $request) => $request->is('api/*') || $request->expectsJson(),
